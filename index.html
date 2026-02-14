@@ -9,6 +9,44 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
+    /* Animated Skill Badge */
+.skill {
+    position: relative;
+    background: rgba(255,255,255,0.08);
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 500;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+.skill::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #00f7ff, #ff00c8, #00ff88, #00f7ff);
+    background-size: 300% 300%;
+    animation: rotateGradient 4s linear infinite;
+    z-index: -1;
+}
+
+.skill span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Animation */
+@keyframes rotateGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+.skill:hover {
+    transform: scale(1.1);
+}
+
 
 *{
     margin:0;
@@ -96,22 +134,51 @@ nav ul li a:hover{
     color:#ddd;
 }
 
-.btn{
-    display:inline-block;
-    padding:14px 30px;
-    background:#00f7ff;
-    color:#141E30;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:600;
-    box-shadow:0 8px 20px rgba(0,247,255,0.4);
-    transition:0.3s;
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 14px 30px;
+    background: #00f7ff;
+    color: #141E30;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(0,247,255,0.4);
+    transition: 0.3s;
+    overflow: hidden; 
+    z-index: 1;
 }
 
-.btn:hover{
-    background:white;
-    transform:translateY(-7px);
+/* circular/line-like border animation */
+.btn::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    border-radius: 30px;
+    border: 2px solid transparent;
+    background: linear-gradient(90deg, #00ff66, #ffff33, #0077ff);
+    background-size: 200% 200%;
+    z-index: -1;
+    animation: btnBorderAnim 3s linear infinite;
 }
+
+/* animation */
+@keyframes btnBorderAnim {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Hover effect */
+.btn:hover {
+    background: white;
+    color: #141E30;
+    transform: translateY(-7px);
+}
+
 
 /* Sections */
 section{
@@ -230,7 +297,9 @@ footer{
 </nav>
 
 <section class="hero">
-    <img src="images/humayon.png" alt="Humayun Kabir">
+    <div class="hero-img-container">
+        <img src="images/h2.png" alt="Humayun Kabir">
+    </div>
 
     <div class="hero-text">
         <h1>Hello, I'm H.M.Humayun Kabir</h1>
@@ -251,13 +320,14 @@ footer{
 <section id="skills">
     <h2>My Skills</h2>
     <div class="skills">
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">Tailwind</div>
-        <div class="skill">Bootstrap</div>
-        <div class="skill">React</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">Node.js</div>
+        <div class="skill"><span>HTML</span></div>
+<div class="skill"><span>CSS</span></div>
+<div class="skill"><span>Tailwind</span></div>
+<div class="skill"><span>Bootstrap</span></div>
+<div class="skill"><span>React</span></div>
+<div class="skill"><span>JavaScript</span></div>
+<div class="skill"><span>Node.js</span></div>
+
     </div>
 </section>
 
