@@ -9,44 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
-    /* Animated Skill Badge */
-.skill {
-    position: relative;
-    background: rgba(255,255,255,0.08);
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-weight: 500;
-    overflow: hidden;
-    z-index: 1;
-    transition: 0.3s;
-}
-
-.skill::before {
-    content: "";
-    position: absolute;
-    inset: -3px;
-    border-radius: 30px;
-    background: linear-gradient(90deg, #00f7ff, #ff00c8, #00ff88, #00f7ff);
-    background-size: 300% 300%;
-    animation: rotateGradient 4s linear infinite;
-    z-index: -1;
-}
-
-.skill span {
-    position: relative;
-    z-index: 2;
-}
-
-/* Animation */
-@keyframes rotateGradient {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 300% 50%; }
-}
-
-.skill:hover {
-    transform: scale(1.1);
-}
-
 
 *{
     margin:0;
@@ -131,7 +93,7 @@ nav ul li a:hover{
     margin:20px 0;
     font-weight:300;
     letter-spacing:2px;
-    color:#ddd;
+    color:#c9eebc;
 }
 
 .btn {
@@ -190,8 +152,15 @@ section h2{
     font-size:36px;
     margin-bottom:40px;
     font-family: 'Playfair Display', serif;
-    color:#00f7ff;
+    text-align:center;
+    background: linear-gradient(90deg,#15ff00,#ffff00,#00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(166, 255, 0, 0.4);
+    position: relative;
+    display: inline-block;
 }
+
 
 /* About */
 #about p{
@@ -199,7 +168,7 @@ section h2{
     margin:auto;
     line-height:1.8;
     font-weight:300;
-    color:#ddd;
+    color:#25f8ea;
 }
 
 /* Skills */
@@ -224,6 +193,94 @@ section h2{
     color:#141E30;
     transform:scale(1.1);
 }
+/* Animated Skill Badge */
+.skill {
+    position: relative;
+    background: rgba(255,255,255,0.08);
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 500;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+.skill::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #00f7ff, #ff00c8, #00ff88, #00f7ff);
+    background-size: 300% 300%;
+    animation: rotateGradient 4s linear infinite;
+    z-index: -1;
+}
+
+.skill span {
+    position: relative;
+    z-index: 2;
+}
+
+/* Animation */
+@keyframes rotateGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+.skill:hover {
+    transform: scale(1.1);
+}
+/* Bottom Skill Progress Section */
+
+.skill-progress-area{
+    margin-top:60px;
+    width:80%;
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+}
+
+.progress-item{
+    margin-bottom:25px;
+}
+
+.progress-item p{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+    font-weight:500;
+}
+
+.progress{
+    width:100%;
+    height:8px;
+    background:rgba(255,255,255,0.1);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:0;
+    border-radius:20px;
+    animation: progressAnim 4s ease forwards;
+}
+
+/* Individual Width + Gradient */
+
+.progress-bar.html{width:95%;background:linear-gradient(90deg,#ff512f,#dd2476);}
+.progress-bar.css{width:90%;background:linear-gradient(90deg,#2193b0,#6dd5ed);}
+.progress-bar.tailwind{width:85%;background:linear-gradient(90deg,#00c6ff,#0072ff);}
+.progress-bar.bootstrap{width:85%;background:linear-gradient(90deg,#f7971e,#ffd200);}
+.progress-bar.js{width:80%;background:linear-gradient(90deg,#ff9966,#ff5e62);}
+.progress-bar.react{width:75%;background:linear-gradient(90deg,#00f260,#0575e6);}
+.progress-bar.node{width:70%;background:linear-gradient(90deg,#56ab2f,#a8e063);}
+
+@keyframes progressAnim{
+    from{width:0;}
+}
+
 
 /* Projects */
 .projects{
@@ -256,6 +313,7 @@ section h2{
     color:#ccc;
     font-size:14px;
 }
+
 
 /* Contact */
 .contact p{
@@ -321,14 +379,67 @@ footer{
     <h2>My Skills</h2>
     <div class="skills">
         <div class="skill"><span>HTML</span></div>
-<div class="skill"><span>CSS</span></div>
-<div class="skill"><span>Tailwind</span></div>
-<div class="skill"><span>Bootstrap</span></div>
-<div class="skill"><span>React</span></div>
-<div class="skill"><span>JavaScript</span></div>
-<div class="skill"><span>Node.js</span></div>
-
+        <div class="skill"><span>CSS</span></div>
+        <div class="skill"><span>Tailwind</span></div>
+        <div class="skill"><span>Bootstrap</span></div>
+        <div class="skill"><span>React</span></div>
+        <div class="skill"><span>JavaScript</span></div>
+        <div class="skill"><span>Node.js</span></div>
     </div>
+    <!-- Skill Progress Area -->
+<div class="skill-progress-area">
+
+    <div class="progress-item">
+        <p>HTML <span>95%</span></p>
+        <div class="progress">
+            <div class="progress-bar html"></div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>CSS <span>90%</span></p>
+        <div class="progress">
+            <div class="progress-bar css"></div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>Tailwind <span>85%</span></p>
+        <div class="progress">
+            <div class="progress-bar tailwind"></div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>Bootstrap <span>85%</span></p>
+        <div class="progress">
+            <div class="progress-bar bootstrap"></div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>JavaScript <span>80%</span></p>
+        <div class="progress">
+            <div class="progress-bar js"></div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>React <span>75%</span></p>
+        <div class="progress">
+            <div class="progress-bar react"></div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>Node.js <span>70%</span></p>
+        <div class="progress">
+            <div class="progress-bar node"></div>
+        </div>
+    </div>
+
+</div>
+
 </section>
 
 <section id="projects">
