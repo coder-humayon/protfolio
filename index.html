@@ -338,6 +338,43 @@ footer{
         font-size:32px;
     }
 }
+/* Project card মূল */
+.project-card {
+    position: relative;
+    background: rgba(255,255,255,0.08);
+    width: 300px;
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: 0.4s;
+    overflow: hidden;
+}
+
+/* চিকন animated border */
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 20px;
+    padding: 2px; /* বর্ডার এর চিকনতা */
+    background: linear-gradient(90deg, #00f7ff, #ff00c8, #00ff88, #ffff00);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    animation: borderSpin 4s linear infinite;
+    pointer-events: none; /* বর্ডার click block করবে না */
+}
+
+/* ঘূর্ণায়মান বর্ডার animation */
+@keyframes borderSpin {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
 </style>
 </head>
