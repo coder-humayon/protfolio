@@ -355,17 +355,28 @@ footer{
 .project-card::before {
     content: "";
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: 20px;
-    padding: 2px; /* বর্ডার এর চিকনতা */
-    background: linear-gradient(90deg, #00f7ff, #ff00c8, #00ff88, #ffff00);
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
+    inset: 6px;   /* 🔥 border ছোট করলো (ভিতরে নিলো) */
+    border-radius: 16px;
+    padding: 2px; /* border thickness */
+    background: linear-gradient(
+        90deg,
+        #00f7ff,
+        #ff00c8,
+        #00ff88,
+        #ffff00,
+        #00f7ff
+    );
+    background-size: 300% 300%;
+    animation: borderSpin 3s linear infinite;
+
+    /* শুধু border দেখাবে */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
-    animation: borderSpin 4s linear infinite;
-    pointer-events: none; /* বর্ডার click block করবে না */
+
+    pointer-events: none;
 }
 
 /* ঘূর্ণায়মান বর্ডার animation */
@@ -482,30 +493,37 @@ footer{
 <section id="projects">
     <h2>My Projects</h2>
     <div class="projects">
-        <div class="project-card">
+
+        <a href="http://localhost:5173/" target="_blank" class="project-card">
             <h3>E-Commerce Website</h3>
-            <p>Responsive online store built with HTML, CSS & JavaScript.</p>
-        </div>
-        <div class="project-card">
+            <p>Click to view my complete E-commerce project.</p>
+        </a>
+
+        <a href="file:///C:/Users/KR/Desktop/Portfolio/index.html#skills" target="_blank" class="project-card">
             <h3>Portfolio Website</h3>
-            <p>Modern responsive portfolio built using React.</p>
-        </div>
-        <div class="project-card">
+            <p>Click to view my personal portfolio project.</p>
+        </a>
+
+        <a href="https://your-react-link.com" target="_blank" class="project-card">
             <h3>React Project</h3>
-            <p>Modern responsive portfolio built using React.</p>
-        </div>
-        <div class="project-card">
-            <h3>tailwind Project</h3>
-            <p>Modern responsive portfolio built using React.</p>
-        </div>
-        <div class="project-card">
+            <p>Click to view my React based project.</p>
+        </a>
+
+        <a href="https://your-javascript-link.com" target="_blank" class="project-card">
+            <h3>JavaScript Project</h3>
+            <p>Click to view my JavaScript project.</p>
+        </a>
+
+        <a href="file:///C:/Users/KR/Desktop/all-class/class-29-30-31/src/index.html" target="_blank" class="project-card">
+            <h3>Tailwind Project</h3>
+            <p>Click to view my Tailwind CSS project.</p>
+        </a>
+
+        <a href="file:///C:/Users/KR/Desktop/all-class/class-20-responsive/index.html" target="_blank" class="project-card">
             <h3>Bootstrap Project</h3>
-            <p>Modern responsive portfolio built using React.</p>
-        </div>
-        <div class="project-card">
-            <h3>Responsive Project</h3>
-            <p>Modern responsive portfolio built using React.</p>
-        </div>
+            <p>Click to view my Bootstrap project.</p>
+        </a>
+
     </div>
 </section>
 
